@@ -1,10 +1,13 @@
 import React from 'react';
 import { HashLink } from 'react-router-hash-link';
-// import { HashLink } from 'react-router-hash-link';
+import useAuth from '../../hooks/useAuth';
 
 
 
 const Header = () => {
+
+    const { logOut, user } = useAuth();
+    // console.log(user);
     return (
         <div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,6 +27,29 @@ const Header = () => {
                             <li class="nav-item">
                                 <HashLink to='/manageItems'>Manage Items</HashLink>
                             </li>
+                            {
+                                !user?.email && <li class="nav-item">
+                                    <HashLink to='/logIn'>Login</HashLink>
+                                </li>
+                            }
+                            {
+                                !user?.email && <li class="nav-item">
+                                    <HashLink to='/signup'>Sign Up</HashLink>
+                                </li>
+                            }
+
+                            {
+                                user?.email && <li class="nav-item">
+                                    {user?.displayName}
+                                </li>
+                            }
+                            {
+                                user?.email && <li class="nav-item">
+                                    <button onClick={logOut}>Log Out</button>
+                                </li>
+                            }
+
+
                         </ul>
 
                     </div>

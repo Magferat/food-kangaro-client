@@ -20,7 +20,7 @@ const AddItems = () => {
         <div>
             <h3>Add Items</h3>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("name", { required: true, maxLength: 20 })} placeholder="Name" />
+                <input {...register("name", { required: true, maxLength: 30 })} placeholder="Name" />
                 <textarea {...register("discription")} placeholder="Description" />
                 <input {...register("img")} placeholder="img" />
                 <input type="number" step="any" {...register("price")} placeholder="Item's Price" />

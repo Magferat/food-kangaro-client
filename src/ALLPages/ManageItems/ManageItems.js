@@ -2,40 +2,93 @@ import React, { useEffect, useState } from 'react';
 
 const ManageItems = () => {
 
-    const [items, setItems] = useState([]);
+    const [orders, setOrders] = useState([]);
+    const [status, setStatus] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/items')
+        fetch('http://localhost:5000/orders')
             .then(res => res.json())
-            .then(data => setItems(data))
+            .then(data => setOrders(data))
     }, [])
 
+    const handleDelete = id => {
+        console.log(id)
+        const confirmation = window.confirm('Are you sure, you want to delete?');
+        if (confirmation) {
+            const url = `http://localhost:5000/orders/${id}`;
+            // console.log(url)
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('hello')
+                    if (data.deletedCount > 0) {
+                        const restOrders = orders.filter(order => order._id !== id);
+                        setOrders(restOrders);
+                    }
+                })
+        };
+    }
+    const handleStatus = id => {
+        console.log('clicked')
+        const url = `http://localhost:5000/orders/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orders)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    alert('Status changed to "Appropved" ');
+                    // setOrders(data);
+                    // setStatus()
 
+                }
+            })
+    }
+
+    console.log(orders);
     return (
         <div>
             <h1>ki</h1>
-            {
-                items.map(item => <ul
-                    key={item._id}
-                > <li>
-                        <div class="card mb-3" >
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src={item.img} class="img-fluid rounded-start" alt="..." />
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{item.name}</h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">SN</th>
+                        <th scope="col">Customer Info</th>
+                        <th scope="col">Order Details</th>
+                        <th scope="col">Status</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                                        <p class="card-text"><small class="text-muted">{item.price}</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    {
+                        orders.map(order => <tr
+                            key={order._id}
+                        >
+                            <th> {orders.indexOf(order) + 1} </th>
+                            <td> {order.name} <br /> {order.number} <br /> {order.email} <br /> {order.address} </td>
+                            <td> {order.orderItem.name} <br />
+                                Price : {order.orderItem.price} $ </td>
+                            <td> <button onClick={() => handleStatus(order._id)}>{order.status} </button> </td>
+                            <td> <button
+                                onClick={() => handleDelete(order._id)}
+                            >Delete</button> </td>
+                        </tr>)
+                    }
 
-                </ul>)
-            }
+
+                </tbody>
+            </table>
+
+
+
         </div>
     );
 };

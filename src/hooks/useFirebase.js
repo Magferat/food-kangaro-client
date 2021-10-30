@@ -19,6 +19,15 @@ const useFirebase = () => {
 
 
 
+    // Continue With Google
+    const logInWithGoogle = () => {
+        setIsLoading(true);
+        //  redirect 
+        return signInWithPopup(auth, googleProvider)
+            .finally(() => setIsLoading(false));
+
+    }
+
     // Register New User 
     const userName = e => {
         setName(e.target.value);
@@ -80,14 +89,6 @@ const useFirebase = () => {
 
     }
 
-    // Continue With Google
-    const logInWithGoogle = () => {
-        setIsLoading(true);
-        //  redirect 
-        return signInWithPopup(auth, googleProvider)
-            .finally(() => setIsLoading(false));
-
-    }
 
     // Log Out 
     const logOut = () => {

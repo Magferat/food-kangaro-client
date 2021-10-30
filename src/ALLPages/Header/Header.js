@@ -24,9 +24,7 @@ const Header = () => {
                             <li class="nav-item">
                                 <HashLink to='/home#allitems'> Available Items </HashLink>
                             </li>
-                            <li class="nav-item">
-                                <HashLink to='/manageItems'>Manage Items</HashLink>
-                            </li>
+
                             {
                                 !user?.email && <li class="nav-item">
                                     <HashLink to='/logIn'>Login</HashLink>
@@ -38,6 +36,16 @@ const Header = () => {
                                 </li>
                             }
 
+                            {
+                                user?.email && <li class="nav-item">
+                                    <HashLink to='/manageItems'>Manage Items</HashLink>
+                                </li>
+                            }
+                            {
+                                user?.email && <li class="nav-item">
+                                    <HashLink to='/myOrders'>My Orders</HashLink>
+                                </li>
+                            }
                             {
                                 user?.email && <li class="nav-item">
                                     {user?.displayName}

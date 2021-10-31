@@ -43,6 +43,11 @@ const Header = () => {
                             }
                             {
                                 user?.email && <li class="nav-item">
+                                    <HashLink to='/additems'>Add Items</HashLink>
+                                </li>
+                            }
+                            {
+                                user?.email && <li class="nav-item">
                                     <HashLink to='/myOrders'>My Orders</HashLink>
                                 </li>
                             }

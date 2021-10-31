@@ -7,7 +7,7 @@ const AddItems = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/items', data)
+        axios.post('https://stormy-woodland-27896.herokuapp.com/items', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Your Item has been added');

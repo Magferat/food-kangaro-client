@@ -16,7 +16,7 @@ const PlaceOrder = () => {
         data.orderItem = item;
 
 
-        axios.post('http://localhost:5000/orders', orderInfo)
+        axios.post('https://stormy-woodland-27896.herokuapp.com/orders', orderInfo)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Your Order has been placed');
@@ -28,7 +28,7 @@ const PlaceOrder = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/items/${orderId}`)
+        fetch(`https://stormy-woodland-27896.herokuapp.com/items/${orderId}`)
             .then(res => res.json())
             .then(data => setItem(data))
     }, [orderId])

@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react';
 const ManageItems = () => {
 
     const [orders, setOrders] = useState([]);
-    const [status, setStatus] = useState('');
+    // const [status, setStatus] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://stormy-woodland-27896.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
@@ -15,7 +15,7 @@ const ManageItems = () => {
         console.log(id)
         const confirmation = window.confirm('Are you sure, you want to delete?');
         if (confirmation) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://stormy-woodland-27896.herokuapp.com/orders/${id}`;
             // console.log(url)
             fetch(url, {
                 method: 'DELETE'
@@ -30,9 +30,10 @@ const ManageItems = () => {
                 })
         };
     }
+
     const handleStatus = id => {
         console.log('clicked')
-        const url = `http://localhost:5000/orders/${id}`;
+        const url = `https://stormy-woodland-27896.herokuapp.com/orders/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

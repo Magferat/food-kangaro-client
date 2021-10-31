@@ -4,15 +4,34 @@ import useAuth from '../../hooks/useAuth';
 const MyOrders = () => {
 
     const [myOrders, setMyOrders] = useState([]);
+
     const { user } = useAuth();
     const email = user.email
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${email}`)
+        fetch(`https://stormy-woodland-27896.herokuapp.com/myOrders/${email}`)
             .then(res => res.json())
             .then(data => setMyOrders(data))
     }, [email])
     console.log(myOrders, email)
-
+    const handleDelete = id => {
+        console.log(id)
+        const confirmation = window.confirm('Are you sure, you want to delete?');
+        if (confirmation) {
+            const url = `https://stormy-woodland-27896.herokuapp.com/orders/${id}`;
+            // console.log(url)
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('hello')
+                    if (data.deletedCount > 0) {
+                        const restOrders = myOrders.filter(order => order._id !== id);
+                        setMyOrders(restOrders);
+                    }
+                })
+        };
+    }
 
 
 
@@ -33,6 +52,7 @@ const MyOrders = () => {
                                     <div class="card-body">
                                         <h5 class="card-title">{order.orderItem.name}</h5>
                                         <p class="card-text">{order.orderItem.price}</p>
+                                        <button onClick={() => handleDelete(order._id)}> Delete Order </button>
                                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                     </div>
                                 </div>

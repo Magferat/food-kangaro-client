@@ -13,7 +13,7 @@ const AllItems = () => {
 
 
     return (
-        <div id="allitems">
+        <div className="items" id="allitems">
             <h1>ALL Items</h1>
             <h3>Total {items.length} </h3>
             <div class="row container mx-auto row-cols-1 row-cols-lg-3 row-cols-md-2 g-4">

@@ -1,7 +1,7 @@
  /*  Banner's style  */
  .banner {
   
-  background-image: url("https://images.unsplash.com/photo-1576866209830-589e1bfbaa4d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80");
+  background-image: url("https://images.unsplash.com/photo-1526367790999-0150786686a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80");
   height: 100vh;
   width: 100%;
   background-blend-mode: overlay;
@@ -9,12 +9,76 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  background-color: rgb(96, 92, 92);
+  background-color: rgb(63, 61, 61);
+}
+.text-color {
+  color: gray;
+}
+.order-click {
+  text-decoration: none;
+  
+}
+.pink {
+  background-color: #D70F64;
+}
+.text-font {
+  /* font-weight: 900px; */
+  font-weight: 900;
 }
 
+.placeOrder-form {
+padding: 20px;
+
+}
+.placeOrder-form input , textarea{
+margin-bottom: 40px;
+padding: 10px;
+}
+
+.banner-placeOrder {
+  background-image: url("https://image.freepik.com/free-vector/delivery-service-with-masks-concept_23-2148509518.jpg");
+  height: 100vh;
+  width: 100%;
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  /* background-color: rgb(63, 61, 61); */
+}
+ .placeOrder-img {
+   width: 250px;
+ }
+.table-banner {
+  background-image: url("https://image.freepik.com/free-vector/employees-deliver-goods-various-forms-customers_1150-35058.jpg");
+  height: 100vh;
+  width: 100%;
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  /* background-color: rgb(63, 61, 61); */   
+
+}
+
+.table-banner thead tr ,  tbody tr {
+border-bottom: 3px solid;
+}
+/* .myOrder {
+background-color: thistle;
+} */
 
 
+.myOrder {
+  /* background: rgb(99, 96, 96);  */
+  background-color: orange;
 
+}
+.add-item input , textarea{
+  margin-bottom: 40px;
+  padding: 10px;
+  }
 
 
 

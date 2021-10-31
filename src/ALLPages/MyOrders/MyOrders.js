@@ -36,24 +36,34 @@ const MyOrders = () => {
 
 
     return (
-        <div>
+
+        <div className=" myOrder">
             <h1>My Orders {myOrders.length} </h1>
-            <div class="container mx-auto row row-cols-1 row-cols-md-1 g-4">
+            <div class="row container mx-auto row-cols-lg-2 row-cols-md-1 g-4">
                 {
                     myOrders.map(order => <div
                         key={order._id}
                         class="col ">
-                        <div class="card w-50 mb-3">
+                        <div class="card mb-3">
                             <div class="row  g-0">
-                                <div class="col-md-4">
-                                    <img src={order.orderItem.img} class=" img-fluid" alt="food" />
+                                <div class="col-md-4 p-2">
+                                    <img src={order.orderItem.img} class=" img-fluid rounded-circle" alt="food" />
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">{order.orderItem.name}</h5>
-                                        <p class="card-text">{order.orderItem.price}</p>
-                                        <button onClick={() => handleDelete(order._id)}> Delete Order </button>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                        <h5 class="card-title fw-bold">
+                                            {order.orderItem.name}</h5>
+                                        <p class="card-text">
+                                            <span className="fw-bold">Price :</span>Tk{order.orderItem.price}<br />
+                                            <span className="fw-bold"> Address :</span>  {order.address}
+                                            <br />
+                                            <span className="fw-bold"> current Status : </span>
+                                            {order.status}
+                                        </p>
+                                        <button
+                                            className="bg-danger text-white px-3 py-1 rounded-pill border-0 "
+                                            onClick={() => handleDelete(order._id)}> Delete Order </button>
+
                                     </div>
                                 </div>
                             </div>

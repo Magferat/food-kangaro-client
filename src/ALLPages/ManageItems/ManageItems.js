@@ -55,30 +55,33 @@ const ManageItems = () => {
 
     console.log(orders);
     return (
-        <div>
-            <h1>ki</h1>
-            <table class="table">
-                <thead>
+        <div className='table-banner container-fluid'>
+
+            <table class="table container px-2  px-5">
+                <thead className="fs-4">
                     <tr>
                         <th scope="col">SN</th>
                         <th scope="col">Customer Info</th>
                         <th scope="col">Order Details</th>
                         <th scope="col">Status</th>
-                        <th scope="col"></th>
+
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="fw-bold font-monospace">
 
                     {
                         orders.map(order => <tr
                             key={order._id}
                         >
-                            <th> {orders.indexOf(order) + 1} </th>
-                            <td> {order.name} <br /> {order.number} <br /> {order.email} <br /> {order.address} </td>
+                            <th> {orders.indexOf(order) + 1}. </th>
+                            <td> {order.name} <br /> {order.number}<br /> {order.address} </td>
                             <td> {order.orderItem.name} <br />
-                                Price : {order.orderItem.price} $ </td>
-                            <td> <button onClick={() => handleStatus(order._id)}>{order.status} </button> </td>
+                                Price : Tk{order.orderItem.price}</td>
                             <td> <button
+                                onClick={() => handleStatus(order._id)}
+                                className="border-0 bg-warning mb-3"
+                            >{order.status} </button> <br /> <button
+                                className="border-0 bg-danger px-2"
                                 onClick={() => handleDelete(order._id)}
                             >Delete</button> </td>
                         </tr>)

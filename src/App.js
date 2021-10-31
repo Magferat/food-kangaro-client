@@ -31,9 +31,9 @@ function App() {
 
             <Route path="/logIn" > <Login /> </Route>
             <Route path="/signup" > <Signup /> </Route>
-            <Route exact path="*" > <NotFound /></Route>
-            <Route exect path="/"><Home /> </Route>
 
+            <Route exect path="/"><Home /> </Route>
+            <Route path="*" > <NotFound /></Route>
           </Switch>
           <Footer />
         </BrowserRouter>

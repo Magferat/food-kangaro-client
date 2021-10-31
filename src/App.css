@@ -80,12 +80,34 @@ background-color: thistle;
   padding: 10px;
   }
 
+  
 
+  .logIn {
+    background-image: url("https://image.freepik.com/free-vector/delivery-man-riding-road-with-hand-using-smartphone_1308-46406.jpg");
+    height: 100vh;
+    width: 100%;
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /* background-color: rgb(63, 61, 61); */   
+  
+  }
 
-
-
-
-
+  .link-style{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    /* margin: 25px; */
+    /* padding: 25px; */
+}
+.link-style:hover {
+    color: black;
+}
+.footer ul li {
+  list-style: none;
+}
 
 
 

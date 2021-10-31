@@ -14,8 +14,8 @@ const AllItems = () => {
 
     return (
         <div className="items" id="allitems">
-            <h1>ALL Items</h1>
-            <h3>Total {items.length} </h3>
+            <h1 className="text-center font-monospace fw-bold text-danger my-3">ALL Items</h1>
+
             <div class="row container mx-auto row-cols-1 row-cols-lg-3 row-cols-md-2 g-4">
 
                 {

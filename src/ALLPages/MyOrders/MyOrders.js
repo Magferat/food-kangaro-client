@@ -37,14 +37,14 @@ const MyOrders = () => {
 
     return (
 
-        <div className=" myOrder">
-            <h1>My Orders {myOrders.length} </h1>
+        <div className=" logIn">
+            <h1 className="text-center ">My Orders  </h1>
             <div class="row container mx-auto row-cols-lg-2 row-cols-md-1 g-4">
                 {
                     myOrders.map(order => <div
                         key={order._id}
                         class="col ">
-                        <div class="card mb-3">
+                        <div class="card mb-3 border-warning border-3">
                             <div class="row  g-0">
                                 <div class="col-md-4 p-2">
                                     <img src={order.orderItem.img} class=" img-fluid rounded-circle" alt="food" />
@@ -61,7 +61,7 @@ const MyOrders = () => {
                                             {order.status}
                                         </p>
                                         <button
-                                            className="bg-danger text-white px-3 py-1 rounded-pill border-0 "
+                                            className="bg-warning text-white px-3 py-1 rounded-pill border-0 "
                                             onClick={() => handleDelete(order._id)}> Delete Order </button>
 
                                     </div>

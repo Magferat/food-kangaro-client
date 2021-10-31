@@ -1,5 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AddItems from './ALLPages/AddItems/AddItems';
+import Footer from './ALLPages/Footer/Footer';
 import Header from './ALLPages/Header/Header';
 import Home from './ALLPages/Home/Home';
 import ManageItems from './ALLPages/ManageItems/ManageItems';
@@ -33,6 +34,7 @@ function App() {
             <Route path="/"><Home /> </Route>
 
           </Switch>
+          <Footer />
         </BrowserRouter>
       </AuthProvider>
 

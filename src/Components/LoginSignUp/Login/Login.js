@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router';
+import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
@@ -34,34 +35,47 @@ const Login = () => {
 
 
     return (
-        <div>
-            <div className="container"></div>
-            <form
-                onSubmit={handleEmailPassSignIn}
-            >
-                <div class="row mb-3">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
+        <>
+            <div className="container-fluid logIn
+        ">
+
+                <form
+                    className="col-lg-5 bg-danger mx-auto my-5 py-5"
+                    onSubmit={handleEmailPassSignIn}
+                >
+                    <div className="container w-75">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+
                         <input
+                            className="mb-4"
                             onBlur={userEmail}
                             type="email" class="form-control" id="inputEmail3" />
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                    <div class="col-sm-10">
+
+
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+
                         <input
+                            className="mb-4"
                             onBlur={userPassword}
                             type="password" class="form-control" id="inputPassword3" />
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
-                <h6 className="text-danger">{error}</h6>
-            </form>
-            <button
-                onClick={handleGoogleLogIn}
-            >Google Log in</button>
-        </div>
+
+                        <button
+                            type="submit"
+                            class="mt-5 btn fw-bold  btn-warning border px-4">Sign in</button>
+                        <h6 className="text-danger">{error}</h6>
+                        <button
+                            class="my-3 fw-bold  btn btn-warning border"
+                            onClick={handleGoogleLogIn}
+                        >Continue With Google</button> <br />
+
+                        <HashLink
+                            className="link-style"
+                            to="/signup">Don't have an account? Click Here !</HashLink>
+                    </div></form>
+
+
+
+            </div></>
     );
 };
 

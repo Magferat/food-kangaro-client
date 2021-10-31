@@ -22,7 +22,7 @@ const PlaceOrder = () => {
                     alert('Your Order has been placed');
                     reset();
                 }
-                // console.log(res);
+
 
             })
     }
@@ -32,26 +32,27 @@ const PlaceOrder = () => {
             .then(res => res.json())
             .then(data => setItem(data))
     }, [orderId])
-    console.log(item)
+    // console.log(item)
 
     return (
         <div className="banner-placeOrder">
             <div className="d-flex flex-lg-row flex-column container
         "> <div className="container mt-5">
                     <h2 className=" fw-bold text-center">Order Details</h2>
-                    <div class="card mt-5 d-flex flex-lg-row p-2 border-warning border-1 shadow-lg">
-                        <img src={item.img} class="placeOrder-img" alt="..." />
-                        <div class="card-body">
-                            <h5 class="card-title text-font">
+                    <div className="card mt-5 d-flex flex-lg-row p-2 border-warning border-1 shadow-lg">
+                        <img src={item.img} className="placeOrder-img" alt="..." />
+                        <div className="card-body">
+                            <h5 className="card-title text-font">
                                 {item.name}</h5>
-                            <p class="card-text p-0">
+                            <span className="card-text p-0">
                                 <span className="fw-bold">
                                     Price</span> : Tk{item.price}
                                 <br />
-                                <span className="fw-bold"> Ratings</span> : {item.ratings} <br />
+
                                 <span className="fw-bold">Details </span>: {item.discription}
-                                <p className="text-danger fw-bold"> Please fill this form </p>
-                            </p>
+                                <p><i className="fas fa-star"></i> {item.ratings} <br /></p>
+                                <p className="text-danger fw-bold"> Please fill this form <i className="fas fa-arrow-right"></i></p>
+                            </span>
 
 
                         </div>
@@ -65,10 +66,8 @@ const PlaceOrder = () => {
                         <input defaultValue={user.displayName} {...register("name", { required: true, maxLength: 20 })} placeholder="Your Name" />
                         <input defaultValue={user.email} {...register("email", { required: true })} placeholder="your@email.com" />
                         <textarea {...register("address", { required: true })} placeholder="Address" />
-
                         <input type="number" {...register("number")} placeholder="Your Phone Number" />
-
-                        <input type="submit" className=" border-danger border-5 rounded bg-warning text-danger fw-bold" />
+                        <input type="submit" className=" border-danger border-5 rounded bg-warning text-danger fw-bold" ></input>
                     </form>
                 </div ></div></div>
     );

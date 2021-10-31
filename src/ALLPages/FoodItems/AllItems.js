@@ -16,7 +16,7 @@ const AllItems = () => {
         <div className="items" id="allitems">
             <h1 className="text-center font-monospace fw-bold text-danger my-3">ALL Items</h1>
 
-            <div class="row container mx-auto row-cols-1 row-cols-lg-3 row-cols-md-2 g-4">
+            <div className="row container mx-auto row-cols-1 row-cols-lg-3 row-cols-md-2 g-4">
 
                 {
                     items.map(item => <Items

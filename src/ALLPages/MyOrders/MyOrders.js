@@ -12,9 +12,9 @@ const MyOrders = () => {
             .then(res => res.json())
             .then(data => setMyOrders(data))
     }, [email])
-    console.log(myOrders, email)
+    // console.log(myOrders, email)
     const handleDelete = id => {
-        console.log(id)
+        // console.log(id)
         const confirmation = window.confirm('Are you sure, you want to delete?');
         if (confirmation) {
             const url = `https://stormy-woodland-27896.herokuapp.com/orders/${id}`;
@@ -39,21 +39,21 @@ const MyOrders = () => {
 
         <div className=" logIn">
             <h1 className="text-center ">My Orders  </h1>
-            <div class="row container mx-auto row-cols-lg-2 row-cols-md-1 g-4">
+            <div className="row container mx-auto row-cols-lg-2 row-cols-md-1 g-4">
                 {
                     myOrders.map(order => <div
                         key={order._id}
-                        class="col ">
-                        <div class="card mb-3 border-warning border-3">
-                            <div class="row  g-0">
-                                <div class="col-md-4 p-2">
-                                    <img src={order.orderItem.img} class=" img-fluid rounded-circle" alt="food" />
+                        className="col ">
+                        <div className="card mb-3 border-warning border-3">
+                            <div className="row  g-0">
+                                <div className="col-md-4 p-2">
+                                    <img src={order.orderItem.img} className=" img-fluid rounded-circle" alt="food" />
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">
+                                <div className="col-md-8">
+                                    <div className="card-body">
+                                        <h5 className="card-title fw-bold">
                                             {order.orderItem.name}</h5>
-                                        <p class="card-text">
+                                        <p className="card-text">
                                             <span className="fw-bold">Price :</span>Tk{order.orderItem.price}<br />
                                             <span className="fw-bold"> Address :</span>  {order.address}
                                             <br />

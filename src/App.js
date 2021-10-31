@@ -9,6 +9,7 @@ import PlaceOrder from './ALLPages/PlaceOrder/PlaceOrder';
 import './App.css';
 import Login from './Components/LoginSignUp/Login/Login';
 import Signup from './Components/LoginSignUp/SignUP/Signup';
+import NotFound from './Components/Not Found/NotFound';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import AuthProvider from './contexts/AuthProvider';
 
@@ -30,8 +31,8 @@ function App() {
 
             <Route path="/logIn" > <Login /> </Route>
             <Route path="/signup" > <Signup /> </Route>
-            {/* <PrivateRoute> <PlaceOrder/> </PrivateRoute> */}
-            <Route path="/"><Home /> </Route>
+            <Route exact path="*" > <NotFound /></Route>
+            <Route exect path="/"><Home /> </Route>
 
           </Switch>
           <Footer />

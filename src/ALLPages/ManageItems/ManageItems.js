@@ -53,11 +53,11 @@ const ManageItems = () => {
             })
     }
 
-    console.log(orders);
+    // console.log(orders);
     return (
         <div className='table-banner container-fluid'>
 
-            <table class="table container px-2  px-5">
+            <table className="table container px-2  px-5">
                 <thead className="fs-4">
                     <tr>
                         <th scope="col">SN</th>
